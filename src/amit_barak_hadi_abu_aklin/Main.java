@@ -1,29 +1,23 @@
 package amit_barak_hadi_abu_aklin;
 
 import amit_barak_hadi_abu_aklin.college.College;
+import amit_barak_hadi_abu_aklin.college.Lecturer;
 
 import java.util.Scanner;
 
-/**
- * Full Names and IDs:
- * Amit Barak – 322605080
- * Hadi Abu-Aklin – 211670641
- */
+// Amit Barak -322605080 ; Hadi Abu-Aklin - 211670641
 
 public class Main {
     private static final String[] MENU = {
-            "Exit program",
-            "Add lecturer",
-            "Add committee",
+            "Exit Program",
+            "Add Lecturer",
+            "Add Committee",
+            "Add Division",
             "Add lecturer to committee",
-            "Add new head to committee",
-            "Remove from committee",
-            "Add department",
             "Show average salary for ALL lecturers",
-            "Show average salary for lecturers in a specific department",
+            "Show average salary for lecturers in a specific division",
             "Show all lecturers",
-            "Show all committees",
-            "Add lecturer to department"
+            "Show all committees"
     };
     private static Scanner s;
 
@@ -37,7 +31,7 @@ public class Main {
         do {
             userChosen = showMenu(s);
             switch (userChosen) {
-                case 0 -> System.out.println("Goodbye!");
+                case 0 -> System.out.println("goodbye");
                 case 1 -> addLecturerMain();
                 case 2 -> addCommitteeMain();
                 case 3 -> lecturerToCommittee();
@@ -68,16 +62,14 @@ public class Main {
         double salary = s.nextDouble();
         s.nextLine();
         College.addLecturer(name, id, degree, degreeName, salary);
-
     }
-
     private static void addCommitteeMain() {
         s.nextLine();
-        System.out.println("Enter committee's name:  ");
+        System.out.println("Enter committee's name:  " );
         String name = s.nextLine();
-        System.out.println("Enter committee's head:  ");
+        System.out.println("Enter committee's head:  " );
         String head = s.nextLine();
-        College.addCommittee(name, head);
+        College.addCommittee(name,head);
     }
 
     private static void addDepartmentMain() {
@@ -87,24 +79,24 @@ public class Main {
         System.out.println("Enter number of students: ");
         int num = s.nextInt();
         s.nextLine();
-        College.addDepartment(name, num);
-    }
+        College.addDepartment(name,num);}
 
     private static void lecturerToCommittee() {
         s.nextLine();
-        System.out.println("Enter lecturer's name: ");
+        System.out.println("Enter lecturer's name: " );
         String nameL = s.nextLine();
-        System.out.println("Enter committee's name: ");
+        System.out.println("Enter committee's name: " );
         String nameC = s.nextLine();
     }
 
     private static void showAvgPayDepartment() {
         System.out.println("which department do you want to check?");
         String name = s.nextLine();
-        boolean check = College.isExist(name,...);
-        if (!check) {
+        College.checkDepartment(name);
+        if (!checkDepartment){
             System.out.println("department doesn't exist");
-        } else {
+        }
+        else {
             System.out.println("department's average salary: " + College.departmentPay(name));
         }
     }
@@ -122,15 +114,42 @@ public class Main {
         return s.nextInt();
     }
 
+
     public static void main(String[] args) {
         s = new Scanner(System.in);
         run();
         s.close();
     }
+
+    public boolean setDegree(String degreeFromUser) {
+        Lecturer.Degree[] degrees = Lecturer.Degree.values();
+        for (Lecturer.Degree deg : degrees ){
+            if (deg.name().equals(degreeFromUser)){
+                this.degree = deg;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Amit Barak -322605080 ; Hadi Abu-Aklin - 211670641
 }
 
-/*
- * Full Names and IDs:
- * Amit Barak – 322605080
- * Hadi Abu-Aklin – 211670641
- */
+
+//        if (isExist(name,lecturers,numOfLecturers)){
+//        System.out.println(name + " already exist...\nwould you like to add a different name? yes/no");
+//String redo = s.next();
+//            switch (redo) {
+//        case "yes" -> {
+//addLecturerMain();
+//                    return;
+//                            }
+//                            case "no" -> {return;}
+//default -> System.out.println("what? im returning you to the menu");
+//            }
+//                    }
+//                    if (numOfLecturers == lecturers.length){
+//lecturers = copy(lecturers, numOfLecturers == 0 ? 2: numOfLecturers * 2);
+//        }
+//lecturers[numOfLecturers++] = name;
+//    }
