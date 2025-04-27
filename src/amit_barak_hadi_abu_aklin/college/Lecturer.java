@@ -1,7 +1,8 @@
 package amit_barak_hadi_abu_aklin.college;
 
-public class Lecturer {
-    public enum Degree {FIRST,SECOND,DOC,PROF}
+class Lecturer {
+    public enum Degree { FIRST, SECOND, DOC, PROF }
+
     private double salary;
     private String name;
     private String id;
@@ -13,8 +14,9 @@ public class Lecturer {
         this.department = department;
         this.id = id;
         this.name = name;
-        this.salary = salary;
+        setSalary(salary);
         setDegree(degree);
+        this.committees = new Committee[0];
     }
 
     public double getSalary() {
@@ -22,7 +24,7 @@ public class Lecturer {
     }
 
     public boolean setSalary(double salary) {
-        if (0 < salary){
+        if (salary > 0) {
             this.salary = salary;
             return true;
         }
@@ -49,18 +51,20 @@ public class Lecturer {
         return degree;
     }
 
-
-
     public boolean setDegree(String degreeFromUser) {
-        Degree[] degrees = Degree.values();
-        for (Degree deg : degrees ){
-            if (deg.name().equals(degreeFromUser)){
-                this.degree = deg;
-                return true;
-            }
+        try {
+            this.degree = Degree.valueOf(degreeFromUser.toUpperCase());
+            return true;
+        } catch (IllegalArgumentException e) {
+            return false;
         }
-        return false;
     }
 
+    public Department getDepartment() {
+        return department;
+    }
 
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
 }
