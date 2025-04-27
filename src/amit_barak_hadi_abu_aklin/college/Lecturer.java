@@ -1,7 +1,7 @@
 package amit_barak_hadi_abu_aklin.college;
 
 class Lecturer {
-    public enum Degree { FIRST, SECOND, DOC, PROF }
+    public enum Degree {FIRST, SECOND, DOC, PROF}
 
     private double salary;
     private String name;
