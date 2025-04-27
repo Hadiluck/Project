@@ -2,7 +2,7 @@ package amit_barak_hadi_abu_aklin.college;
 
 import java.util.Arrays;
 
-class Committee {
+public class Committee {
     private String name;
     private Lecturer headOf;
     private Lecturer[] lecturers;

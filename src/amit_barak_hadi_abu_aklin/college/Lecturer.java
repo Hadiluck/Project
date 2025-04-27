@@ -1,6 +1,6 @@
 package amit_barak_hadi_abu_aklin.college;
 
-class Lecturer {
+public class Lecturer {
     public enum Degree {FIRST, SECOND, DOC, PROF}
 
     private double salary;
@@ -8,7 +8,6 @@ class Lecturer {
     private String id;
     private Degree degree;
     private Department department;
-    private Committee[] committees;
 
     public Lecturer(double salary, Department department, String degree, String id, String name) {
         this.department = department;
@@ -16,7 +15,6 @@ class Lecturer {
         this.name = name;
         setSalary(salary);
         setDegree(degree);
-        this.committees = new Committee[0];
     }
 
     public double getSalary() {
@@ -35,17 +33,17 @@ class Lecturer {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public String getId() {
+//        return id;
+//    }
+//
+//    public void setId(String id) {
+//        this.id = id;
+//    }
 
     public Degree getDegree() {
         return degree;

@@ -2,7 +2,7 @@ package amit_barak_hadi_abu_aklin.college;
 
 import java.util.Arrays;
 
-class Department {
+public class Department {
     private String name;
     private Lecturer[] lecturers;
     private int numOfLecturers;
@@ -34,18 +34,18 @@ class Department {
         return true;
     }
 
-    public void removeLecturerFromDepartment(Lecturer lecturer) {
-        int j = 0;
-        for (int i = 0; i < numOfLecturers; i++) {
-            if (!lecturers[i].equals(lecturer)) {
-                lecturers[j++] = lecturers[i];
-            }
-        }
-        if (j < numOfLecturers) {
-            lecturer.setDepartment(null);
-        }
-        numOfLecturers = j;
-    }
+//    public void removeLecturerFromDepartment(Lecturer lecturer) {
+//        int j = 0;
+//        for (int i = 0; i < numOfLecturers; i++) {
+//            if (!lecturers[i].equals(lecturer)) {
+//                lecturers[j++] = lecturers[i];
+//            }
+//        }
+//        if (j < numOfLecturers) {
+//            lecturer.setDepartment(null);
+//        }
+//        numOfLecturers = j;
+//    }
 
     @Override
     public String toString() {
@@ -65,7 +65,6 @@ class Department {
         return sb.toString();
     }
 
-    // Getters
     public String getName() {
         return name;
     }
@@ -74,11 +73,12 @@ class Department {
         return lecturers;
     }
 
-    public int getNumOfLecturers() {
-        return numOfLecturers;
-    }
+//    public int getNumOfLecturers() {
+//        return numOfLecturers;
+//    }
+//
+//    public int getNumOfStudents() {
+//        return numOfStudents;
+//    }
 
-    public int getNumOfStudents() {
-        return numOfStudents;
-    }
 }
